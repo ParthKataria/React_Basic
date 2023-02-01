@@ -11,12 +11,13 @@ const Dropdown = () => {
   const dropdown = useRef();
   useEffect(() => {
     const handler = (event) => {
+      //   console.log(dropdown.current);
       if (!dropdown.current) return;
       if (!dropdown.current.contains(event.target)) setIsOpen(false);
     };
     document.addEventListener("click", handler, true);
     return () => document.removeEventListener("click", handler);
-  }, []);
+  }, [dropdown]);
 
   const getItems = async () => {
     try {
@@ -36,14 +37,14 @@ const Dropdown = () => {
   }, []);
   if (error) return <ErrorPage />;
   return (
-    <div ref={dropdown} className="relative inline-block text-left">
+    <div ref={dropdown} className="relative inline-block text-left ml-5 ">
       <div>
         <button
           className="inline-flex w-full justify-center rounded-md  "
           onClick={() => setIsOpen(!isOpen)}
         >
           CATEGORIES
-          <GoChevronDown classNames="-mr-1 ml-2 mt-5 h-5 w-5" />
+          <GoChevronDown className="-mr-1 h-5 w-5" />
         </button>
       </div>
       {isOpen && (
@@ -52,8 +53,8 @@ const Dropdown = () => {
             <div className="py-1">Loading...</div>
           ) : (
             <div>
-              {categories.map((category) => (
-                <div onClick={() => setIsOpen(false)} className="py-1">
+              {categories.map((category, id) => (
+                <div key={id} onClick={() => setIsOpen(false)} className="py-1">
                   <Link
                     className="text-gray-700 block px-4 py-2 text-sm"
                     to={`/categories/${category}`}

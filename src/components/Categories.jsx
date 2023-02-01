@@ -31,8 +31,8 @@ const Categories = () => {
       ) : (
         <div>
           <ul>
-            {categories.map((category) => (
-              <li>
+            {categories.map((category, id) => (
+              <li key={id}>
                 <Link to={`/categories/${category}`}>{category}</Link>
               </li>
             ))}

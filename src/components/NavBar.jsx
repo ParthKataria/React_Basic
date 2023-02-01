@@ -15,14 +15,18 @@ const NavBar = ({ user, handleSetUser }) => {
         <div className="mt-5">
           {LINKS.map((link) => {
             return (
-              <Link className="ml-5 hover:text-white" to={link.path}>
+              <Link
+                key={link.name}
+                className="ml-5 hover:text-white"
+                to={link.path}
+              >
                 {link.name}
               </Link>
             );
           })}
-          <Link className="ml-5 hover:text-white">
+          <Fragment>
             <Dropdown />
-          </Link>
+          </Fragment>
         </div>
 
         <div className="mt-5 ml-auto mr-5">
@@ -35,7 +39,7 @@ const NavBar = ({ user, handleSetUser }) => {
           {isLoggedIn && (
             <button
               className="hover:text-white ml-5"
-              onClick={() => handleSetUser(null)}
+              onClick={() => handleSetUser()}
             >
               LOGOUT
             </button>

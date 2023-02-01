@@ -22,7 +22,7 @@ const Home = () => {
   useEffect(() => {
     getItems();
   }, []);
-  console.log(items);
+  //   console.log(items);
   if (error) return <ErrorPage />;
   return (
     <div>{isLoading ? <div>Loading...</div> : <ItemsList items={items} />}</div>

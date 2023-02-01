@@ -7,11 +7,14 @@ const AllItems = () => {
   const [currentPage, setCurrentPage] = useState(0);
   const [error, setError] = useState(null);
   const observer = useRef();
+  //   console.log(observer);
   const lastElement = useCallback(
     (node) => {
+      //   console.log(node);
       if (isLoading) return;
-      if (observer.current) observer.current.disconnect();
+      //   if (observer.current) observer.current.disconnect();
       observer.current = new IntersectionObserver((entries) => {
+        // console.log(entries);
         if (entries[0].isIntersecting) {
           setCurrentPage((prev) => prev + 1);
         }
@@ -35,7 +38,7 @@ const AllItems = () => {
           },
           headers: {
             "X-RapidAPI-Key":
-              "864dac725amshac87f811e37cacdp1def16jsn271d0e0550d4",
+              "613cf127f5msh97949d8491e5c62p1a7131jsn765e4eeb8335",
             "X-RapidAPI-Host": "apidojo-hm-hennes-mauritz-v1.p.rapidapi.com",
           },
         }
@@ -69,10 +72,7 @@ const AllItems = () => {
               </div>
             );
           return (
-            <div
-              key={product.defaultArticle.code}
-              className="mx-2 my-5 bg-white shadow p-2"
-            >
+            <div key={id} className="mx-2 my-5 bg-white shadow p-2">
               <img className="block w-full" src={product.images[0].url} />
             </div>
           );

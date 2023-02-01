@@ -25,7 +25,7 @@ const Item = () => {
   }, []);
   if (error) return <ErrorPage />;
   const { image, price, title, description } = item;
-  console.log(item);
+  //   console.log(item);
   return (
     <>
       {isLoading ? (

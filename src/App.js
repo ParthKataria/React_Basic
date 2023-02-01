@@ -9,7 +9,7 @@ import CategoryItems from "./components/CategoryItems";
 import Item from "./components/Item";
 const App = () => {
   const [user, setUser] = useState(null);
-  const handleSetUser = (USER) => {
+  const handleSetUser = (USER = null) => {
     setUser(USER);
   };
   return (

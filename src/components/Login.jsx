@@ -18,39 +18,8 @@ const Login = ({ handleSetUser }) => {
       navigate("/");
     } catch (err) {
       alert("Please Check Your Credentials");
-      //   navigate("/login");
     }
   };
-  //   const handleGoogleClick = async () => {
-  //     try {
-  //       const response = await signInWithGooglePopup();
-  //       const { _tokenResponse } = response;
-  //       handleSetUser(_tokenResponse);
-  //       navigate("/");
-  //     } catch (err) {
-  //       setError(err);
-  //     }
-  //   };
-  //   const handleEmailClick = async () => {
-  //     try {
-  //       const response = await signInWithEmail(email, password);
-  //       const { _tokenResponse } = response;
-  //       handleSetUser(_tokenResponse);
-  //       console.log(response);
-  //     } catch (err) {
-  //       setError(err);
-  //     }
-  //   };
-  //   const handleRegisterClick = async () => {
-  //     try {
-  //       const response = await Register(email, password);
-  //       const { _tokenResponse } = response;
-  //       handleSetUser(_tokenResponse);
-  //       console.log(response);
-  //     } catch (err) {
-  //       setError(err);
-  //     }
-  //   };
   return (
     <div className="grid  text-2xl grid-cols-1 items-center w-1/3 m-auto mt-10 border border-green-400 p-5 rounded shadow-lg shadow-green-400">
       <div className="text-center">
